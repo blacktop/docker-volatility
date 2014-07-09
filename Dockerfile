@@ -7,3 +7,7 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 
 # Install Volatility
 RUN add-apt-repository -y ppa:pi-rho/security && apt-get -q update && apt-get install volatility 
+
+ENTRYPOINT ["volatility"]
+
+CMD ["-h"]

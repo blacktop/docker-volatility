@@ -5,6 +5,8 @@ MAINTAINER blacktop, https://github.com/blacktop
 RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
+RUN apt-get install -y software-properties-common
+
 # Install Volatility
 RUN \
   add-apt-repository -y ppa:pi-rho/security && \

@@ -20,7 +20,7 @@ $ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
 ```
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/mem:/mem:rw blacktop/volatility -f windows.vmem psscan
+$ docker run -i -t -v /path/to/mem:/data:rw blacktop/volatility -f windows.vmem psscan
 ```
 #### Output:
 ```bash

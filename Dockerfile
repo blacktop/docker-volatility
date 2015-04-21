@@ -10,6 +10,7 @@ RUN buildDeps='build-essential \
   && set -x \
   && apt-get update -qq \
   && apt-get install -yq $buildDeps \
+                         ca-certificates \
                          python \
                          git-core \
   && pip install --upgrade pip \

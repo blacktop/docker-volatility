@@ -5,14 +5,14 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 
 ### Dependencies
 
-* [ubuntu:latest](https://index.docker.io/_/ubuntu/)
+* [blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
 
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
-blacktop/volatility        latest        288.3 MB
+blacktop/volatility        latest        390 MB
 ```
 
 ### Installation

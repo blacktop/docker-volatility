@@ -1,4 +1,3 @@
-# FROM debian:wheezy
 FROM blacktop/yara
 
 MAINTAINER blacktop, https://github.com/blacktop

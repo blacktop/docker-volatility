@@ -2,7 +2,7 @@ FROM blacktop/yara
 
 MAINTAINER blacktop, https://github.com/blacktop
 
-# Install Volatility
+# Install Volatility Dependancies
 RUN buildDeps='build-essential \
                python-dev \
                python-pip' \
@@ -23,7 +23,7 @@ RUN buildDeps='build-essential \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install Cuckoo Sandbox and remove install dir after to conserve space
+# Install Volatility and remove install dir after to conserve space
 RUN cd /tmp \
   && git clone https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \

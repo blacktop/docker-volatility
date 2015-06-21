@@ -7,12 +7,15 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 
 * [blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
 
+### Image Size
+[![](https://badge.imagelayers.io/blacktop/volatility:latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest 'Get your own badge on imagelayers.io')
+
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
-blacktop/volatility        latest        390.1 MB
+blacktop/volatility        latest        100.2 MB
 ```
 
 ### Installation
@@ -27,7 +30,7 @@ $ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
 ```
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/mem:/data:rw blacktop/volatility -f silentbanker.vmem pslist
+$ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
 #### Output:
 ```bash
@@ -68,18 +71,12 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 $ brew install cask
 $ brew cask install virtualbox
 $ brew install docker
-$ brew install boot2docker
-$ boot2docker init
-$ boot2docker up
-$ $(boot2docker shellinit)
+$ brew install docker-machine
+$ docker-machine create --driver virtualbox dev
+$ eval $(docker-machine env dev)
 ```
 Add the following to your bash or zsh profile
 
 ```bash
-alias vol='docker run -it --rm -v $(pwd):/data:rw blacktop/volatility $@'
+alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'
 ```
-
-### Todo
-- [x] Install/Run Volatility
-- [ ] Start Daemon and watch folder with supervisord
-- [ ] Have container take a URL as input and download/scan memory dump

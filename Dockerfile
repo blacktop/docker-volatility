@@ -14,7 +14,7 @@ RUN buildDeps='autoconf \
                python-dev' \
   && set -x \
   && apk --update add ca-certificates $buildDeps \
-  && pip install --upgrade pip \
+  && pip install --upgrade pip setuptools \
   && pip install distorm3 \
                  pycrypto \
                  Pillow \

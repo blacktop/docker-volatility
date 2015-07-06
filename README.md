@@ -68,7 +68,7 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
  - Install [Homebrew](http://brew.sh)
 
 ```bash
-$ brew install cask
+$ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine

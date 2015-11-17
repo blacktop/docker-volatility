@@ -11,25 +11,30 @@ RUN buildDeps='autoconf \
                make \
                openssl-dev \
                py-pip \
-               python-dev' \
+               python-dev \
+               jpeg-dev \
+               zlib-dev' \
   && set -x \
-  && apk --update add ca-certificates $buildDeps \
-  && pip install --upgrade pip setuptools \
+  && apk --update add $buildDeps ca-certificates zlib py-pillow py-crypto \
+  && pip install --upgrade pip setuptools wheel \
   && pip install distorm3 \
-                 pycrypto \
-                 Pillow \
                  openpyxl \
                  ipython \
                  pytz \
   && cd /tmp \
   && git clone https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
-  && python setup.py build install\
+  && python setup.py build install \
+  && echo "Installing Community Plugins..." \
+  && mkdir /plugins \
+  && cd /plugins \
+  && git clone https://github.com/volatilityfoundation/community.git \
   && apk del --purge $buildDeps \
   && rm -rf /tmp/* /root/.cache /var/cache/apk/*
 
 # Define mountable directories.
 VOLUME ["/data"]
+VOLUME ["/plugins"]
 
 # Define working directory.
 WORKDIR /data
@@ -37,3 +42,5 @@ WORKDIR /data
 ENTRYPOINT ["vol.py"]
 
 CMD ["-h"]
+
+# NOTE: I need to use alpine:edge in my yara image to install py-lxml

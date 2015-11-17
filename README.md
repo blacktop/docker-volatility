@@ -8,7 +8,7 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 * [blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
 
 ### Image Size
-[![](https://badge.imagelayers.io/blacktop/volatility:latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/blacktop/volatility:2.5.svg)](https://imagelayers.io/?images=blacktop/volatility:2.5 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
@@ -16,6 +16,7 @@ $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
 blacktop/volatility        latest        101.2 MB
+blacktop/volatility        2.5           101.2 MB
 ```
 
 ### Installation
@@ -32,9 +33,11 @@ $ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
 ```bash
 $ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
+> NOTE: To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
+
 #### Output:
 ```bash
-Volatility Foundation Volatility Framework 2.4
+Volatility Foundation Volatility Framework 2.5
 Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit
 ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
 0x810b1660 System                    4      0     59      183 ------      0

@@ -11,13 +11,13 @@ RUN buildDeps='autoconf \
                make \
                openssl-dev \
                py-pip \
-               python-dev' \
+               python-dev \
+               jpeg-dev \
+               zlib-dev' \
   && set -x \
-  && apk --update add ca-certificates $buildDeps \
+  && apk --update add ca-certificates zlib py-pillow py-crypto $buildDeps \
   && pip install --upgrade pip setuptools \
   && pip install distorm3 \
-                 pycrypto \
-                 Pillow \
                  openpyxl \
                  ipython \
                  pytz \

@@ -17,7 +17,7 @@ $ docker images
 REPOSITORY                 TAG           VIRTUAL SIZE
 blacktop/volatility        latest        138 MB
 blacktop/volatility        2.5           138 MB
-blacktop/volatility        2.4           101.2 MB
+blacktop/volatility        2.4           136 MB
 ```
 
 ### Installation
@@ -34,7 +34,7 @@ $ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
 ```bash
 $ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
-> NOTE: To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
+> **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
 
 #### Output:
 ```bash

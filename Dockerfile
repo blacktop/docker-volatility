@@ -15,9 +15,12 @@ RUN buildDeps='autoconf \
                jpeg-dev \
                zlib-dev' \
   && set -x \
-  && apk --update add $buildDeps ca-certificates zlib py-pillow py-crypto \
+  && apk --update add $buildDeps ca-certificates zlib py-pillow py-crypto py-lxml \
   && pip install --upgrade pip setuptools wheel \
-  && pip install distorm3 \
+  && pip install simplejson \
+                 construct \
+                 haystack \
+                 distorm3 \
                  openpyxl \
                  ipython \
                  pytz \
@@ -25,10 +28,16 @@ RUN buildDeps='autoconf \
   && git clone https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
+  && cd /tmp \
+  && echo "Installing ioc_writer..." \
+  && git clone --recursive --branch v0.2.2 https://github.com/mandiant/ioc_writer.git \
+  && cd ioc_writer \
+  && python setup.py install \
   && echo "Installing Community Plugins..." \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
+  && pip uninstall wheel setuptools \
   && apk del --purge $buildDeps \
   && rm -rf /tmp/* /root/.cache /var/cache/apk/*
 
@@ -42,5 +51,3 @@ WORKDIR /data
 ENTRYPOINT ["vol.py"]
 
 CMD ["-h"]
-
-# NOTE: I need to use alpine:edge in my yara image to install py-lxml

@@ -19,10 +19,12 @@ RUN buildDeps='autoconf \
   && pip install --upgrade pip setuptools wheel \
   && pip install simplejson \
                  construct \
+                 colorama \
                  haystack \
                  distorm3 \
                  openpyxl \
                  ipython \
+                 pycoin \
                  pytz \
   && cd /tmp \
   && git clone https://github.com/volatilityfoundation/volatility.git \
@@ -37,7 +39,6 @@ RUN buildDeps='autoconf \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
-  && pip uninstall wheel setuptools \
   && apk del --purge $buildDeps \
   && rm -rf /tmp/* /root/.cache /var/cache/apk/*
 

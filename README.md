@@ -18,8 +18,8 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
-blacktop/volatility        latest        138 MB
-blacktop/volatility        2.5           138 MB
+blacktop/volatility        latest        114 MB
+blacktop/volatility        2.5           114 MB
 blacktop/volatility        2.4           136 MB
 ```
 

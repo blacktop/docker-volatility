@@ -26,7 +26,7 @@ RUN apk-install -t build-deps build-base \
                  pytz \
   && set -x \
   && cd /tmp \
-  && git clone --recursive --branch 2.5 https://github.com/volatilityfoundation/volatility.git \
+  && git clone --recursive https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
   && cd /tmp \

@@ -3,7 +3,7 @@ FROM blacktop/yara
 MAINTAINER blacktop, https://github.com/blacktop
 
 # Install Volatility Dependancies
-RUN apk-install ca-certificates zlib py-pillow py-crypto py-lxml
+RUN apk-install ca-certificates zlib py-pillow py-crypto py-lxml py-setuptools
 RUN apk-install -t build-deps build-base \
                               autoconf \
                               automake \

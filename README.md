@@ -1,41 +1,58 @@
-![volatility-logo](https://code.google.com/p/volatility/logo?cct=1387506588) Volatility Dockerfile
+![VOL-logo](https://raw.githubusercontent.com/blacktop/docker-volatility/master/logo.png) Volatility Dockerfile
 ==================
 
-This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/volatility/) published to the public [Docker Registry](https://index.docker.io/).
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/volatility/latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/volatility/latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest)
+
+This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/blacktop/volatility/) published to the public [Docker Registry](https://hub.docker.com/).
 
 ### Dependencies
 
 * [blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
 
+<<<<<<< HEAD
 ### Image Size
 [![](https://badge.imagelayers.io/blacktop/volatility:2.5.svg)](https://imagelayers.io/?images=blacktop/volatility:2.5 'Get your own badge on imagelayers.io')
 
+=======
+>>>>>>> master
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
+<<<<<<< HEAD
 blacktop/volatility        latest        101.2 MB
 blacktop/volatility        2.5           101.2 MB
+=======
+blacktop/volatility        latest        114 MB
+blacktop/volatility        2.5           114 MB
+blacktop/volatility        2.4           136 MB
+>>>>>>> master
 ```
 
 ### Installation
 
 1. Install [Docker](https://www.docker.io/).
 
-2. Download [trusted build](https://index.docker.io/u/blacktop/volatility/) from public [Docker Registry](https://index.docker.io/): `docker pull blacktop/volatility`
+2. Download [trusted build](https://hub.docker.com/r/blacktop/volatility/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/volatility`
 
-#### Alternatively, build an image from Dockerfile
-```bash
-$ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
-```
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
+$ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
+<<<<<<< HEAD
 > NOTE: To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
 
 #### Output:
+=======
+> **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
+
+#### Output
+>>>>>>> master
 ```bash
 Volatility Foundation Volatility Framework 2.5
 Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit
@@ -75,11 +92,13 @@ $ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine
-$ docker-machine create --driver virtualbox dev
-$ eval $(docker-machine env dev)
+$ docker-machine create --driver virtualbox default
+$ eval $(docker-machine env default)
 ```
 Add the following to your bash or zsh profile
 
 ```bash
 alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'
 ```
+
+[hub]: https://hub.docker.com/r/blacktop/volatility/

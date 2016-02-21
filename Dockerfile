@@ -14,7 +14,7 @@ RUN apk-install -t build-deps build-base \
                               py-pip \
                               jpeg-dev \
                               zlib-dev \
-  && pip install --upgrade pip wheel \
+  && pip install --upgrade pip setuptools wheel \
   && pip install simplejson \
                  construct \
                  colorama \

@@ -1,2 +1,6 @@
+# Ignore .git folder
+.git*
+
 README.md
+LICENSE
 *.vmem

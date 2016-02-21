@@ -1,14 +1,17 @@
-![volatility-logo](https://code.google.com/p/volatility/logo?cct=1387506588) Volatility Dockerfile
+![VOL-logo](https://raw.githubusercontent.com/blacktop/docker-volatility/master/logo.png) Volatility Dockerfile
 ==================
 
-This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/volatility/) published to the public [Docker Registry](https://index.docker.io/).
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/volatility/latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/volatility/latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest)
+
+This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/blacktop/volatility/) published to the public [Docker Registry](https://hub.docker.com/).
 
 ### Dependencies
 
 * [blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
-
-### Image Size
-[![](https://badge.imagelayers.io/blacktop/volatility:latest.svg)](https://imagelayers.io/?images=blacktop/volatility:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
@@ -24,12 +27,8 @@ blacktop/volatility        2.4           136 MB
 
 1. Install [Docker](https://www.docker.io/).
 
-2. Download [trusted build](https://index.docker.io/u/blacktop/volatility/) from public [Docker Registry](https://index.docker.io/): `docker pull blacktop/volatility`
+2. Download [trusted build](https://hub.docker.com/r/blacktop/volatility/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/volatility`
 
-#### Alternatively, build an image from Dockerfile
-```bash
-$ docker build -t blacktop/volatility github.com/blacktop/docker-volatility
-```
 ### Usage
 ```bash
 $ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
@@ -76,11 +75,13 @@ $ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine
-$ docker-machine create --driver virtualbox dev
-$ eval $(docker-machine env dev)
+$ docker-machine create --driver virtualbox default
+$ eval $(docker-machine env default)
 ```
 Add the following to your bash or zsh profile
 
 ```bash
 alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'
 ```
+
+[hub]: https://hub.docker.com/r/blacktop/volatility/

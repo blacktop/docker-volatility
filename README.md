@@ -31,11 +31,11 @@ blacktop/volatility        2.4           136 MB
 
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
+$ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
 > **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
 
-#### Output:
+#### Output
 ```bash
 Volatility Foundation Volatility Framework 2.5
 Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit

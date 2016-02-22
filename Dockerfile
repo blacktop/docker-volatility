@@ -14,6 +14,8 @@ RUN apk-install -t build-deps build-base \
                               py-pip \
                               jpeg-dev \
                               zlib-dev \
+  && export PIP_NO_CACHE_DIR=off \
+  && export PIP_DISABLE_PIP_VERSION_CHECK=on \                              
   && pip install --upgrade pip wheel \
   && pip install simplejson \
                  construct \

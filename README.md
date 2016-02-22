@@ -19,7 +19,7 @@ $ docker images
 
 REPOSITORY                 TAG           VIRTUAL SIZE
 blacktop/volatility        latest        113 MB
-blacktop/volatility        2.5           114 MB
+blacktop/volatility        2.5           113 MB
 blacktop/volatility        2.4           136 MB
 ```
 

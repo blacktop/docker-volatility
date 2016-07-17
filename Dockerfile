@@ -15,7 +15,7 @@ RUN apk-install -t build-deps build-base \
                               jpeg-dev \
                               zlib-dev \
   && export PIP_NO_CACHE_DIR=off \
-  && export PIP_DISABLE_PIP_VERSION_CHECK=on \                              
+  && export PIP_DISABLE_PIP_VERSION_CHECK=on \
   && pip install --upgrade pip wheel \
   && pip install simplejson \
                  construct \
@@ -43,11 +43,9 @@ RUN apk-install -t build-deps build-base \
   && rm -rf /tmp/* \
   && apk del --purge build-deps
 
-# Define mountable directories.
 VOLUME ["/data"]
 VOLUME ["/plugins"]
 
-# Define working directory.
 WORKDIR /data
 
 ENTRYPOINT ["vol.py"]

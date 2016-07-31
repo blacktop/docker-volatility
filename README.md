@@ -1,19 +1,19 @@
 ![VOL-logo](https://raw.githubusercontent.com/blacktop/docker-volatility/master/logo.png) Volatility Dockerfile
 ===============================================================================================================
 
+[![CircleCI](https://circleci.com/gh/blacktop/docker-volatility.png?style=shield)](https://circleci.com/gh/blacktop/docker-volatility)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/)
+[![Docker Image](https://img.shields.io/badge/docker image-55.85 MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
 
 This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility).
 
 ### Dependencies
 
--	[blacktop/yara](https://registry.hub.docker.com/u/blacktop/yara/)
+-	[blacktop/yara:3.4](https://registry.hub.docker.com/u/blacktop/yara/)
 
 ### Image Tags
 
 ```bash
-$ docker images
-
 REPOSITORY                 TAG           VIRTUAL SIZE
 blacktop/volatility        latest        113 MB
 blacktop/volatility        2.5           113 MB
@@ -22,8 +22,7 @@ blacktop/volatility        2.4           136 MB
 
 ### Installation
 
-1.	Install [Docker](https://www.docker.io/).
-
+1.	Install [Docker](https://docs.docker.com).
 2.	Download [trusted build](https://hub.docker.com/r/blacktop/volatility/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/volatility`
 
 ### Usage
@@ -33,8 +32,6 @@ $ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.v
 ```
 
 > **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)\)
-
-#### Output
 
 ```bash
 Volatility Foundation Volatility Framework 2.5
@@ -67,8 +64,19 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 0xff3856c0 cmd.exe                1136   1668      0 --------      0      0 2010-08-15 19:01:51 UTC+0000   2010-08-15 19:01:51 UTC+0000
 ```
 
+### Documentation
 Add the following to your bash or zsh profile
+
+##### Use **blacktop/volatility** like a host binary
 
 ```bash
 alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'
 ```
+
+### Issues
+
+Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/docker-volatility/issues/new) and I'll get right on it.
+
+### License
+
+MIT Copyright (c) 2014-2016 **blacktop**

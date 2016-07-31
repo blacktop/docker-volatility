@@ -2,7 +2,10 @@
 .git*
 
 README.md
+README.md.bu
 LICENSE
 *.vmem
 logo.png
 big-logo.png
+build
+release

@@ -3,7 +3,7 @@
 
 [![CircleCI](https://circleci.com/gh/blacktop/docker-volatility.png?style=shield)](https://circleci.com/gh/blacktop/docker-volatility)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/)
-[![Docker Image](https://img.shields.io/badge/docker image-120.9 MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
+[![Docker Image](https://img.shields.io/badge/docker image-118.3 MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
 
 This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility).
 
@@ -15,8 +15,9 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 
 ```bash
 REPOSITORY                 TAG           VIRTUAL SIZE
-blacktop/volatility        latest        120.9 MB
-blacktop/volatility        2.5           120.9 MB
+blacktop/volatility        latest        118.3 MB
+blacktop/volatility        2.5           118.3 MB
+blacktop/volatility        plugins       118.3 MB
 blacktop/volatility        2.4           136 MB
 ```
 > NOTE: tag **plugins** is `volatility:2.5` with as many community plugins as I could find (want more? Open a [pull request](https://github.com/blacktop/docker-volatility/pull/new/master))

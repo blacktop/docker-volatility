@@ -14,11 +14,11 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 ### Image Tags
 
 ```bash
-REPOSITORY                 TAG           VIRTUAL SIZE
-blacktop/volatility        latest        118.3 MB
-blacktop/volatility        2.5           118.3 MB
-blacktop/volatility        plugins       118.3 MB
-blacktop/volatility        2.4           136 MB
+REPOSITORY            TAG                 SIZE
+blacktop/volatility   latest              127.8 MB
+blacktop/volatility   2.5                 118.3 MB
+blacktop/volatility   plugins             120.9 MB
+blacktop/volatility   2.4                 113 MB
 ```
 > NOTE: tag **plugins** is `volatility:2.5` with as many community plugins as I could find (want more? Open a [pull request](https://github.com/blacktop/docker-volatility/pull/new/master))
 
@@ -27,7 +27,7 @@ blacktop/volatility        2.4           136 MB
 1.	Install [Docker](https://docs.docker.com).
 2.	Download [trusted build](https://hub.docker.com/r/blacktop/volatility/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/volatility`
 
-### Usage
+### Getting Started
 
 ```bash
 $ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
@@ -78,6 +78,16 @@ alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'
 ### Issues
 
 Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/docker-volatility/issues/new) and I'll get right on it.
+
+### CHANGELOG
+
+See [`CHANGELOG.md`](https://github.com/blacktop/docker-volatility/blob/master/CHANGELOG.md)
+
+### Contributing
+
+[See all contributors on GitHub](https://github.com/blacktop/docker-volatility/graphs/contributors).
+
+Please update the [CHANGELOG.md](https://github.com/blacktop/docker-volatility/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).
 
 ### License
 

@@ -1,7 +1,7 @@
 ![VOL-logo](https://raw.githubusercontent.com/blacktop/docker-volatility/master/logo.png) Volatility Dockerfile
 ===============================================================================================================
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-volatility.png?style=shield)](https://circleci.com/gh/blacktop/docker-volatility) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Image](https://img.shields.io/badge/docker image-118.3 MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
+[![CircleCI](https://circleci.com/gh/blacktop/docker-volatility.png?style=shield)](https://circleci.com/gh/blacktop/docker-volatility) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Image](https://img.shields.io/badge/docker image-131.3 MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
 
 This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility).
 
@@ -14,6 +14,7 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 ```bash
 REPOSITORY            TAG                 SIZE
 blacktop/volatility   latest              127.8 MB
+blacktop/volatility   2.6                 131.3 MB
 blacktop/volatility   2.5                 118.3 MB
 blacktop/volatility   plugins             120.9 MB
 blacktop/volatility   2.4                 113 MB
@@ -35,7 +36,7 @@ $ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.v
 > **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)\)
 
 ```bash
-Volatility Foundation Volatility Framework 2.5
+Volatility Foundation Volatility Framework 2.6
 Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit
 ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
 0x810b1660 System                    4      0     59      183 ------      0
@@ -91,4 +92,4 @@ Please update the [CHANGELOG.md](https://github.com/blacktop/docker-volatility/b
 
 ### License
 
-MIT Copyright (c) 2014-2016 **blacktop**
+MIT Copyright (c) 2014-2017 **blacktop**

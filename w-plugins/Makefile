@@ -3,17 +3,17 @@ VERSION=$(shell cat VERSION)
 DEV_RUN_OPTS ?= -h
 
 dev:
-	docker build -f Dockerfile.dev -t $(NAME):dev .
+	docker build -f Dockerfile -t $(NAME):dev .
 	docker run --rm $(NAME):dev $(DEV_RUN_OPTS)
 
 tags:
 	docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}" blacktop/$(NAME)
 
 build:
-	rm -rf build && mkdir build
-	docker build -t $(NAME):$(VERSION) .; sleep 3;
-	sed -i.bu 's/docker image-.*-blue/docker image-$(shell docker images --format "{{.Size}}" $(NAME):$(VERSION))-blue/g' ../README.md
-	docker save $(NAME):$(VERSION) | gzip -9 > build/$(NAME)_$(VERSION).tgz
+	docker build -t blacktop/$(NAME):$(VERSION) .
+
+size:
+	sed -i.bu 's/docker image-.*-blue/docker image-$(shell docker images --format "{{.Size}}" blacktop/$(NAME):$(VERSION))-blue/g' ../README.md
 
 release:
 	rm -rf release && mkdir release

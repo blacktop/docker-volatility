@@ -3,7 +3,7 @@ machine:
     - docker
 
 general:
-  build_dir: "2.5"
+  build_dir: "2.6"
 
 dependencies:
   # pre:

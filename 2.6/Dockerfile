@@ -2,6 +2,8 @@ FROM blacktop/yara:3.4
 
 MAINTAINER blacktop, https://github.com/blacktop
 
+ENV VOL_VERSION 2.6
+
 # Install Volatility Dependancies
 RUN apk-install ca-certificates zlib py-pillow py-crypto py-lxml py-setuptools
 RUN apk-install -t .build-deps \
@@ -30,7 +32,7 @@ RUN apk-install -t .build-deps \
   && set -x \
   && cd /tmp \
   && echo "Installing Volatility from source..." \
-  && git clone --recursive https://github.com/volatilityfoundation/volatility.git \
+  && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
   && rm -rf /tmp/* \

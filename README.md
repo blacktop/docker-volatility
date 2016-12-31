@@ -13,10 +13,10 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 
 ```bash
 REPOSITORY            TAG                 SIZE
-blacktop/volatility   latest              127.8 MB
+blacktop/volatility   latest              131.3 MB
 blacktop/volatility   2.6                 131.3 MB
 blacktop/volatility   2.5                 118.3 MB
-blacktop/volatility   plugins             120.9 MB
+blacktop/volatility   plugins             137.1 MB
 blacktop/volatility   2.4                 113 MB
 ```
 

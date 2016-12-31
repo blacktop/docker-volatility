@@ -2,6 +2,8 @@ NAME=volatility
 VERSION=$(shell cat VERSION)
 DEV_RUN_OPTS ?= -h
 
+NEWSIZE = $(shell docker images --format "{{.Size}}" blacktop/$(NAME):$(VERSION))
+
 dev:
 	docker build -f Dockerfile -t $(NAME):dev .
 	docker run --rm $(NAME):dev $(DEV_RUN_OPTS)
@@ -13,7 +15,10 @@ build:
 	docker build -t blacktop/$(NAME):$(VERSION) .
 
 size:
-	sed -i.bu 's/docker image-.*-blue/docker image-$(shell docker images --format "{{.Size}}" blacktop/$(NAME):$(VERSION))-blue/g' ../README.md
+ifeq "$(VERSION)" "latest"
+	sed -i.bu 's/docker image-.*-blue/docker image-$(NEWSIZE)-blue/' ../README.md
+endif
+	sed -i.bu '/$(VERSION)/ s/[0-9.]\{3,5\} MB/$(NEWSIZE)/' ../README.md
 
 release:
 	rm -rf release && mkdir release
@@ -28,4 +33,4 @@ circleci:
 	go get -u github.com/gliderlabs/glu
 	glu circleci
 
-.PHONY: build release
+.PHONY: build size tags release circleci

@@ -6,16 +6,17 @@ general:
   build_dir: "2.6"
 
 dependencies:
-  # pre:
-  #   - make circleci
+  cache_directories:
+    - "~/docker"
   override:
-    - make build
-  post:
-    - cp build/* $CIRCLE_ARTIFACTS
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - docker build -t volatility:$(cat VERSION) .
+    - mkdir -p ~/docker; docker save volatility:$(cat VERSION) > ~/docker/image.tar
 
 test:
   override:
-    - /bin/true
+    - docker run volatility:$(cat VERSION) -h
 
 deployment:
   # master:

@@ -16,7 +16,7 @@ REPOSITORY            TAG                 SIZE
 blacktop/volatility   latest              130 MB
 blacktop/volatility   2.6                 130 MB
 blacktop/volatility   2.5                 122 MB
-blacktop/volatility   plugins             137.1 MB
+blacktop/volatility   plugins             137 MB
 blacktop/volatility   2.4                 117 MB
 ```
 

@@ -1,4 +1,4 @@
-FROM blacktop/yara:3.4
+FROM blacktop/yara:3.5
 
 MAINTAINER blacktop, https://github.com/blacktop
 
@@ -52,6 +52,6 @@ VOLUME ["/plugins"]
 
 WORKDIR /data
 
-ENTRYPOINT ["gosu","nobody","/sbin/tini","--","vol.py"]
+ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","vol.py"]
 
 CMD ["-h"]

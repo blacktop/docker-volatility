@@ -29,9 +29,8 @@ RUN apk-install -t .build-deps \
                  ipython \
                  pycoin \
                  pytz \
-  && set -x \
   && cd /tmp \
-  && echo "Installing Volatility from source..." \
+  && echo "===> Installing Volatility from source..." \
   && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
@@ -44,5 +43,4 @@ VOLUME ["/plugins"]
 WORKDIR /data
 
 ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","vol.py"]
-
 CMD ["-h"]

@@ -29,21 +29,19 @@ RUN apk-install -t .build-deps \
                  ipython \
                  pycoin \
                  pytz \
-  && set -x \
+  && echo "===> Installing Volatility from source..." \
   && cd /tmp \
-  && echo "Installing Volatility from source..." \
   && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
+  && echo "===> Installing ioc_writer..." \
   && cd /tmp \
-  && echo "Installing ioc_writer..." \
   && git clone --recursive --branch v0.2.2 https://github.com/mandiant/ioc_writer.git \
   && cd ioc_writer \
   && python setup.py install \
-  && echo "Installing Community Plugins..." \
-  && mkdir /plugins \
-  && cd /plugins \
-  && git clone https://github.com/volatilityfoundation/community.git \
+  && echo "===> Installing Community Plugins..." \
+  && cd /usr/lib/python2.7/site-packages/volatility-2.6-py2.7.egg/contrib/plugins \
+  && git clone --recursive https://github.com/volatilityfoundation/community.git \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
@@ -53,5 +51,4 @@ VOLUME ["/plugins"]
 WORKDIR /data
 
 ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","vol.py"]
-
 CMD ["-h"]

@@ -33,8 +33,6 @@ blacktop/volatility   2.4                 117 MB
 $ docker run --rm -v /path/to/mem:/data:ro blacktop/volatility -f silentbanker.vmem pslist
 ```
 
-> **NOTE:** To use Community Plugins add `--plugins=/plugins` option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)\)
-
 ```bash
 Volatility Foundation Volatility Framework 2.6
 Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit
@@ -67,6 +65,14 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 ```
 
 ### Documentation
+
+##### To use additional plugins
+
+```bash
+$ docker run --rm -v /path/to/mem:/data:ro -v /path/to/plugins:/plugins blacktop/volatility --plugins=/plugins -f silentbanker.vmem custom_plugin
+```
+
+> **NOTE:** See [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)
 
 Add the following to your bash or zsh profile
 

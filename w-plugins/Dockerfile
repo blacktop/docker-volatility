@@ -44,6 +44,7 @@ RUN apk-install -t .build-deps \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
+  && mv /tmp/volatility/contrib/plugins contrib \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 

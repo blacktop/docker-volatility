@@ -69,7 +69,9 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 ##### To use additional plugins
 
 ```bash
-$ docker run --rm -v /path/to/mem:/data:ro -v /path/to/plugins:/plugins blacktop/volatility --plugins=/plugins -f silentbanker.vmem custom_plugin
+$ docker run --rm -v /path/to/mem:/data:ro \
+                  -v /path/to/plugins:/plugins \
+                  blacktop/volatility --plugins=/plugins -f silentbanker.vmem custom_plugin
 ```
 
 > **NOTE:** See [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)

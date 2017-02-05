@@ -19,7 +19,7 @@ tags:
 	docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}" $(REPO)/$(NAME)
 
 test:
+	docker run --rm $(REPO)/$(NAME):$(BUILD) --help	
 	docker run --rm $(REPO)/$(NAME):$(BUILD) --info
-	docker run --rm $(REPO)/$(NAME):$(BUILD) --help
 
 .PHONY: build size tags test

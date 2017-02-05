@@ -34,16 +34,16 @@ RUN apk-install -t .build-deps \
   && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
   && python setup.py build install \
-  && echo "===> Installing ioc_writer..." \
-  && cd /tmp \
-  && git clone --recursive --branch v0.2.2 https://github.com/mandiant/ioc_writer.git \
-  && cd ioc_writer \
-  && python setup.py install \
   && echo "===> Installing Community Plugins..." \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
   && mv /tmp/volatility/contrib/plugins contrib \
+  && echo " * Installing ioc_writer..." \
+  && cd /tmp \
+  && git clone --recursive --branch v0.2.2 https://github.com/mandiant/ioc_writer.git \
+  && cd ioc_writer \
+  && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 

@@ -40,8 +40,10 @@ RUN apk-install -t .build-deps \
   && cd ioc_writer \
   && python setup.py install \
   && echo "===> Installing Community Plugins..." \
-  && cd /usr/lib/python2.7/site-packages/volatility-2.6-py2.7.egg/contrib/plugins \
-  && git clone --recursive https://github.com/volatilityfoundation/community.git \
+  && mkdir /plugins \
+  && cd /plugins \
+  && git clone https://github.com/volatilityfoundation/community.git \
+  && mv /tmp/volatility/contrib/plugins contrib \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
@@ -50,5 +52,5 @@ VOLUME ["/plugins"]
 
 WORKDIR /data
 
-ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","vol.py"]
+ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","vol.py","--plugins=/plugins"]
 CMD ["-h"]

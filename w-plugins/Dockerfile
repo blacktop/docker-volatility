@@ -21,7 +21,7 @@ RUN apk-install -t .build-deps \
   && export PIP_DISABLE_PIP_VERSION_CHECK=on \
   && pip install --upgrade pip wheel \
   && pip install simplejson \
-                 construct \
+                 construct==2.5.5-reupload \
                  openpyxl \
                  haystack \
                  distorm3 \
@@ -29,6 +29,10 @@ RUN apk-install -t .build-deps \
                  ipython \
                  pycoin \
                  pytz \
+                 pysocks \
+                 requests \
+                 dpapick \
+
   && echo "===> Installing Volatility from source..." \
   && cd /tmp \
   && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
@@ -38,6 +42,8 @@ RUN apk-install -t .build-deps \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
+  && rm -rf community/AlexanderTarasenko/windbg.py \
+  && rm -rf community/MarcinUlikowski/bitlocker.py \
   && mv /tmp/volatility/contrib/plugins contrib \
   && echo " * Installing ioc_writer..." \
   && cd /tmp \
@@ -46,6 +52,17 @@ RUN apk-install -t .build-deps \
   && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
+
+# Temporary hotfixes for upstream volatility/community import errors
+# https://github.com/volatilityfoundation/community/pull/19
+RUN cd /plugins/community/YingLi \
+  && touch __init__.py \
+  && cd /plugins/community/StanislasLejay/linux \
+  && touch __init__.py \
+  && cd /plugins/community/DatQuoc \
+  && touch __init__.py \
+  && cd /plugins/community/DimaPshoul \
+  && sed -i 's/import volatility.plugins.malware.callstacks as/import/' malthfind.py
 
 VOLUME ["/data"]
 VOLUME ["/plugins"]

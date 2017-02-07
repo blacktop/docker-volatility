@@ -66,19 +66,27 @@ Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Star
 
 ### Documentation
 
-##### To use additional plugins
+##### Plugins tag
+
+This image includes and enables by default plugins from:
+
+- [contrib/plugins](https://github.com/volatilityfoundation/volatility/tree/master/contrib/plugins) from the main volatility package.
+- [Volatility community repo](https://github.com/volatilityfoundation/community)
+
+###### To use additional plugins
 
 ```bash
 $ docker run --rm -v /path/to/mem:/data:ro \
                   -v /path/to/plugins:/plugins \
-                  blacktop/volatility --plugins=/plugins -f silentbanker.vmem custom_plugin
+                  blacktop/volatility -f silentbanker.vmem custom_plugin
 ```
-
+> **NOTE:** This will disable all other non-core plugins (contrib and community)
 > **NOTE:** See [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories)
 
-Add the following to your bash or zsh profile
 
 ##### Use **blacktop/volatility** like a host binary
+
+Add the following to your bash or zsh profile
 
 ```bash
 alias vol='docker run -it --rm -v $(pwd):/data:ro blacktop/volatility $@'

@@ -42,8 +42,12 @@ RUN apk-install -t .build-deps \
   && mkdir /plugins \
   && cd /plugins \
   && git clone https://github.com/volatilityfoundation/community.git \
-  && rm -rf community/AlexanderTarasenko/windbg.py \
-  && rm -rf community/MarcinUlikowski/bitlocker.py \
+  && cd community \
+  # reset to known working commit
+  && git reset --hard 29b07e7223f55e3256e3faee7b712030676ecdec \
+  # remove windows only plugins
+  && rm -rf /plugins/community/AlexanderTarasenko \
+  && rm -rf /plugins/community/MarcinUlikowski \
   && mv /tmp/volatility/contrib/plugins contrib \
   && echo " * Installing ioc_writer..." \
   && cd /tmp \

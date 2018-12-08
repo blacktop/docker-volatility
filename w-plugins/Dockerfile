@@ -2,7 +2,7 @@ FROM blacktop/yara:3.7
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV VOL_VERSION 2.6
+ENV VOL_VERSION 2.6.1
 
 # Install Volatility Dependancies
 RUN apk add --no-cache ca-certificates zlib py-pillow py-crypto py-lxml py-setuptools

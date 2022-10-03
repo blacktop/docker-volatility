@@ -1,6 +1,6 @@
 # ![VOL-logo](https://raw.githubusercontent.com/blacktop/docker-volatility/master/logo.png) Volatility Dockerfile
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-volatility.png?style=shield)](https://circleci.com/gh/blacktop/docker-volatility) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Image](https://img.shields.io/badge/docker%20image-133MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
+[![Publish Docker Image](https://github.com/blacktop/docker-volatility/actions/workflows/docker-image.yml/badge.svg)](https://github.com/blacktop/docker-volatility/actions/workflows/docker-image.yml) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/volatility.svg)](https://hub.docker.com/r/blacktop/volatility/) [![Docker Image](https://img.shields.io/badge/docker%20image-171MB-blue.svg)](https://hub.docker.com/r/blacktop/volatility/)
 
 This repository contains a **Dockerfile** of [Volatility](https://github.com/volatilityfoundation/volatility).
 
@@ -8,14 +8,14 @@ This repository contains a **Dockerfile** of [Volatility](https://github.com/vol
 
 ## Dependencies
 
-- [blacktop/yara:3.7](https://registry.hub.docker.com/u/blacktop/yara/)
+- [blacktop/yara:4.2](https://registry.hub.docker.com/u/blacktop/yara/)
 
 ## Image Tags
 
 ```bash
 REPOSITORY            TAG                 SIZE
-blacktop/volatility   latest              133MB
-blacktop/volatility   2.6                 133MB
+blacktop/volatility   latest              171MB
+blacktop/volatility   2.6                 171MB
 blacktop/volatility   plugins             143 MB
 blacktop/volatility   2.5                 124 MB
 blacktop/volatility   2.4                 118 MB

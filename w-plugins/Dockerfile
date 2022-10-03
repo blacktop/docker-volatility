@@ -5,17 +5,17 @@ LABEL maintainer "https://github.com/blacktop"
 ENV VOL_VERSION 2.6.1
 
 # Install Volatility Dependancies
-RUN apk add --no-cache ca-certificates zlib py-pillow py-crypto py-lxml py-setuptools
+RUN apk add --no-cache ca-certificates zlib py3-pillow py3-crypto py3-lxml py3-setuptools
 RUN apk add --no-cache -t .build-deps \
   openssl-dev \
-  python-dev \
+  python3-dev \
   build-base \
   zlib-dev \
   libc-dev \
   jpeg-dev \
   automake \
   autoconf \
-  py-pip \
+  py3-pip \
   git \
   && export PIP_NO_CACHE_DIR=off \
   && export PIP_DISABLE_PIP_VERSION_CHECK=on \
@@ -34,12 +34,11 @@ RUN apk add --no-cache -t .build-deps \
   pysocks \
   requests \
   dpapick \
-
   && echo "===> Installing Volatility from source..." \
   && cd /tmp \
   && git clone --recursive --branch $VOL_VERSION https://github.com/volatilityfoundation/volatility.git \
   && cd volatility \
-  && python setup.py build install \
+  && python3 setup.py build install \
   && echo "===> Installing Community Plugins..." \
   && mkdir /plugins \
   && cd /plugins \
@@ -55,7 +54,7 @@ RUN apk add --no-cache -t .build-deps \
   && cd /tmp \
   && git clone --recursive --branch v0.2.2 https://github.com/mandiant/ioc_writer.git \
   && cd ioc_writer \
-  && python setup.py install \
+  && python3 setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 

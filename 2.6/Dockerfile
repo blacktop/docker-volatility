@@ -1,4 +1,4 @@
-FROM blacktop/yara:3.7
+FROM blacktop/yara:4.2
 
 LABEL maintainer "https://github.com/blacktop"
 

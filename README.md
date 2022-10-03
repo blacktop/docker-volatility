@@ -108,4 +108,4 @@ Please update the [CHANGELOG.md](https://github.com/blacktop/docker-volatility/b
 
 ## License
 
-MIT Copyright (c) 2014-2017 **blacktop**
+MIT Copyright (c) 2014-2022 **blacktop**
